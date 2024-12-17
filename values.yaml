@@ -1,0 +1,12 @@
+# -- The port that the proxy should open to listen for database connections from the application
+port: 3306
+serviceAccount:
+  # -- Service account name
+  name: default
+  automountToken: "false"
+# -- To find your Cloud SQL instance's connection name, visit the detail page of your Cloud SQL instance in the console
+instanceConnectionName: ""
+image:
+  registry: eu.gcr.io/cloud-sql-connectors/cloud-sql-proxy
+  # -- By default, it uses appVersion if the value is not set.
+  tag: ""
