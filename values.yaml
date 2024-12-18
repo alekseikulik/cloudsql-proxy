@@ -1,0 +1,16 @@
+# -- The port that the proxy should open to listen for database connections from the application. MySQL: `3306`, PostgreSQL: `5432`
+port: 3306
+serviceAccount:
+  # -- Service account name
+  name: default
+  # -- Automount service account token to give the application access to the Kubernetes API
+  automountToken: "false"
+# -- To find your Cloud SQL instance's connection name, visit the detail page of your Cloud SQL instance in the console
+instanceConnectionName: ""
+image:
+  # -- Docker registry and image name
+  registry: eu.gcr.io/cloud-sql-connectors/cloud-sql-proxy
+  # -- By default, it uses `.Chart.AppVersion` if the value is not set.
+  tag: ""
+  # -- Image pull policy
+  pullPolicy: "IfNotPresent"
