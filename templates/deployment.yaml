@@ -2,8 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Release.Name }}
+  namespace: {{ .Release.Name }}
   labels:
     app: {{ .Release.Name }}
+  annotations:
+    checkov.io/skip1: CKV_K8S_10="CPU requests should be set" - Up to end user
+    checkov.io/skip2: CKV_K8S_11="CPU limits should be set" - Up to end user
+    checkov.io/skip3: CKV_K8S_12="Memory requests should be set" - Up to end user
+    checkov.io/skip4: CKV_K8S_13="Memory limits should be set" - Up to end user
+    checkov.io/skip5: CKV_K8S_15="Image Pull Policy should be Always" - Up to end user
+    checkov.io/skip6: CKV_K8S_43="Image should use digest" - Up to end user
 spec:
   replicas: 1
   selector:
@@ -21,6 +29,7 @@ spec:
       containers:
       - name: cloud-sql-proxy
         image: {{ .Values.image.registry }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
         args:
           - "--address=0.0.0.0" #  Enable SQL proxy port on all interfaces
           - "{{ .Values.instanceConnectionName}}"

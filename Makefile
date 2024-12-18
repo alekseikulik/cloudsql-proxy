@@ -8,3 +8,8 @@ help: # Show this help
 .PHONY: docs
 docs: # Auto genetare documentation
 	@helm-docs
+
+.PHONY: test
+test: # Run tests
+	@helm lint
+	@checkov -d . --framework helm --quiet --compact

@@ -1,5 +1,12 @@
 apiVersion: v2
-appVersion: 2.14.2  # Use only tags from https://github.com/GoogleCloudPlatform/cloud-sql-proxy/releases
-description: The Cloud SQL Proxy provides secure access to your Cloud SQL Postgres/MySQL instances without having to whitelist IP addresses or configure SSL
+appVersion: "2.14.2"  # Use only tags from https://github.com/GoogleCloudPlatform/cloud-sql-proxy/releases
 name: cloudsql-proxy
 version: 1.0.0
+description: The Cloud SQL Proxy provides secure access to your Cloud SQL Postgres/MySQL instances without having to whitelist IP addresses or configure SSL
+home: https://github.com/alekseikulik/cloudsql-proxy
+sources:
+  - https://github.com/GoogleCloudPlatform/cloud-sql-proxy
+keywords:
+  - GCP
+  - CloudSQL
+  - cloudsql-proxy
